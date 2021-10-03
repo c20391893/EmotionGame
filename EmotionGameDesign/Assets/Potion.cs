@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
@@ -6,8 +7,8 @@ using UnityEngine;
 public class Potion : MonoBehaviour
 {
     private bool dragging;
-    
-    private Vector2 offset;
+    //public Component GetComponent<Sprite_Renderer>;
+    private Vector2 offset,originalPosition;
     
     // Start is called before the first frame update
     void OnMouseDown()
@@ -16,6 +17,18 @@ public class Potion : MonoBehaviour
 
         offset = GetMousePos() - (Vector2)transform.position;
     }
+
+     void Awake()
+     {
+         originalPosition = transform.position;
+     }
+
+     void OnMouseUp()
+     {
+         //if(Vector2.Distance(transform.position,Slot.transform.position))
+         transform.position = originalPosition;
+         dragging = false;
+     }
 
     // Update is called once per frame
     void Update()
