@@ -9,7 +9,7 @@ using UnityEngine;
         public bool fire;
         public bool free;
          public bool Down;
-
+         public GameManager gm;
       
      
         // Start is called before the first frame update
@@ -46,7 +46,7 @@ using UnityEngine;
             if (Down == true)
             {
                 anim.SetBool("Down", true);  
-            
+               // gm.roundcounter += 1;
             }
         }
         

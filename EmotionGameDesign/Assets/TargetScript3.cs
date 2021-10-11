@@ -9,7 +9,8 @@ public class TargetScript3 : MonoBehaviour
     public bool fire;
     public bool free;
     public bool Down;
-     
+    public GameManager gm;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -45,6 +46,7 @@ public class TargetScript3 : MonoBehaviour
         if (Down == true)
         {
             anim.SetBool("Down", true);
+            //gm.roundcounter += 1;
         }
     }
 }
