@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class TargetScript3 : MonoBehaviour
 {
-    Animator anim;
+    public Animator anim;
     public bool fire;
     public bool free;
     public bool Down;

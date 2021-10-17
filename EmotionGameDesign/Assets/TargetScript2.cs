@@ -5,7 +5,7 @@ using UnityEngine;
 
     public class TargetScript2 : MonoBehaviour
     {
-        Animator anim;
+        public Animator anim;
         public bool fire;
         public bool free;
          public bool Down;
@@ -41,7 +41,8 @@ using UnityEngine;
 
             if (free == true)
             {
-                anim.SetBool("shot", false);     
+                anim.SetBool("shot", false);  
+                
             }
             if (Down == true)
             {

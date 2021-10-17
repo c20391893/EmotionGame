@@ -155,7 +155,8 @@ MonoBehaviour:
   targetScript1: {fileID: 734429594}
   targetScript2: {fileID: 649591045}
   targetScript3: {fileID: 433965471}
-  nextround: 0
+  timerDuration: 5
+  Timerend: 0
 --- !u!4 &190927439
 Transform:
   m_ObjectHideFlags: 0
@@ -203,9 +204,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fa18fb19aec9dc4696fd4244b0cf7ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 0}
   fire: 0
   free: 0
   Down: 0
+  gm: {fileID: 0}
 --- !u!1 &435246785
 GameObject:
   m_ObjectHideFlags: 0
@@ -305,9 +308,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0f13c502d9858c41beff555c54ba871, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 0}
   fire: 0
   free: 0
   Down: 0
+  gm: {fileID: 0}
 --- !u!58 &649591046
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -341,9 +346,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0921336ea33a4014b9e1df82471e9160, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 0}
   fire: 0
   free: 0
   Down: 0
+  gm: {fileID: 0}
 --- !u!58 &734429595
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -663,9 +670,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0921336ea33a4014b9e1df82471e9160, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 0}
   fire: 0
   free: 0
   Down: 0
+  gm: {fileID: 0}
 --- !u!4 &1916760956
 Transform:
   m_ObjectHideFlags: 0
