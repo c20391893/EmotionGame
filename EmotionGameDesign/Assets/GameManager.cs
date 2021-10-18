@@ -34,16 +34,33 @@ public TargetScript targetScript1;
 
     void Update()
     {
-       Debug.Log(round);
-        StartCoroutine("SetTimer1");
-        
+        Debug.Log(round);
+
+        if (targetScript1.Down == true && targetScript2.Down == !true && targetScript3.Down == !true&&round<11)
+
+        {
+            Timerend1 = false;
+            StartCoroutine(SetTimer1());
+        }
+        else if (targetScript1.Down == !true && targetScript2.Down == true && targetScript3.Down == !true&&round<11)
+
+        {
+            Timerend1 = false;
+            StartCoroutine(SetTimer1());
+        }
+        else if (targetScript1.Down == !true && targetScript2.Down == !true && targetScript3.Down == true&&round<11)
+        {
+            Timerend1 = false;
+            StartCoroutine(SetTimer1());
+        }
     }
+    
 
     IEnumerator SetTimer1()
     {
-        Timerend2 = false;
-            yield return new WaitForSeconds(timerDuration);
-            Timerend1 = true;
+       
+        yield return new WaitForSeconds(timerDuration);
+           Timerend1 = true;
             if (Timerend1== true&&targetScript1.Down==true&&targetScript2.Down==true&&targetScript3.Down==true)
             {
                 targetScript1.Down = false;
@@ -53,13 +70,33 @@ public TargetScript targetScript1;
             }
 
 
-            else if (Timerend1 == true) 
+            else if (Timerend1 == true&&targetScript1.Down==false&&targetScript2.Down==false&&targetScript3.Down==true) 
+            {
+                targetScript1.Down = false;
+                targetScript2.Down = false;
+                targetScript3.Down = false; 
+            }
+            
+            else if (Timerend1 == true&&targetScript1.Down==false&&targetScript2.Down==true&&targetScript3.Down==false) 
             {
                 targetScript1.Down = false;
                 targetScript2.Down = false;
                 targetScript3.Down = false; 
             }
 
+            else if (Timerend1 == true&&targetScript1.Down==true&&targetScript2.Down==false&&targetScript3.Down==false) 
+            {
+                targetScript1.Down = false;
+                targetScript2.Down = false;
+                targetScript3.Down = false; 
+            }
+
+            if (targetScript1.fire == true)
+            {
+                targetScript1.anim.SetBool("shot", true);
+                targetScript1.Down = true;
+            }
+            
             if (targetScript1.Down == false)
             {
                     targetScript1.anim.SetBool("Down", false);
@@ -72,6 +109,8 @@ public TargetScript targetScript1;
             {
                     targetScript3.anim.SetBool("Down", false);
             }
+            
+            
     }
     
     }
