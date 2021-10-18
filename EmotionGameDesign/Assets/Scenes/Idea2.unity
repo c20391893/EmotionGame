@@ -155,7 +155,7 @@ MonoBehaviour:
   targetScript1: {fileID: 734429594}
   targetScript2: {fileID: 649591045}
   targetScript3: {fileID: 433965471}
-  timerDuration: 5
+  timerDuration: 2
   Timerend1: 0
   Timerend2: 0
 --- !u!4 &190927439
