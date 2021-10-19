@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Transactions;
+using UnityEditor.MemoryProfiler;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -10,10 +12,14 @@ public class GameManager : MonoBehaviour
 public TargetScript targetScript1;
  public TargetScript2 targetScript2;
  public TargetScript3 targetScript3;
- private int round = 1;
+ public int round =1;
  [SerializeField] public float timerDuration;
  [SerializeField] public bool Timerend1;
  [SerializeField] public bool Timerend2;
+ public VictimScript1 victim1;
+ public VictimScript2 victim2;
+ public VictimScript3 victim3;
+ public GameObject GameOver;
 
 
   
@@ -25,7 +31,7 @@ public TargetScript targetScript1;
     void Start()
     {
         Timerend1=false;
-        
+        Timerend2 = false;
     }
 
     // Update is called once per frame
@@ -36,23 +42,36 @@ public TargetScript targetScript1;
     {
         Debug.Log(round);
 
-        if (targetScript1.Down == true && targetScript2.Down == !true && targetScript3.Down == !true&&round<11)
+        if (targetScript1.Down == true && targetScript2.Down == !true && targetScript3.Down == !true)
 
         {
             Timerend1 = false;
             StartCoroutine(SetTimer1());
         }
-        else if (targetScript1.Down == !true && targetScript2.Down == true && targetScript3.Down == !true&&round<11)
+        else if (targetScript1.Down == !true && targetScript2.Down == true && targetScript3.Down == !true)
 
         {
             Timerend1 = false;
             StartCoroutine(SetTimer1());
         }
-        else if (targetScript1.Down == !true && targetScript2.Down == !true && targetScript3.Down == true&&round<11)
+        else if (targetScript1.Down == !true && targetScript2.Down == !true && targetScript3.Down == true)
         {
             Timerend1 = false;
             StartCoroutine(SetTimer1());
         }
+        
+        if(round>10)
+        {
+           victim1.anim.SetBool("rise",true); 
+           victim2.anim.SetBool("rise",true); 
+           victim3.anim.SetBool("rise",true); 
+        }
+
+        if (victim1.Down == true && victim2.Down == true && victim3.Down == true)
+        {
+            StartCoroutine(SetTimer2());
+        }
+        
     }
     
 
@@ -61,7 +80,7 @@ public TargetScript targetScript1;
        
         yield return new WaitForSeconds(timerDuration);
            Timerend1 = true;
-            if (Timerend1== true&&targetScript1.Down==true&&targetScript2.Down==true&&targetScript3.Down==true)
+            if (Timerend1== true&&targetScript1.Down==true&&targetScript2.Down==true&&targetScript3.Down==true&&round<10)
             {
                 targetScript1.Down = false;
                 targetScript2.Down = false;
@@ -70,25 +89,33 @@ public TargetScript targetScript1;
             }
 
 
-            else if (Timerend1 == true&&targetScript1.Down==false&&targetScript2.Down==false&&targetScript3.Down==true) 
+            else if (Timerend1 == true&&targetScript1.Down==false&&targetScript2.Down==false&&targetScript3.Down==true&&round<10) 
             {
                 targetScript1.Down = false;
                 targetScript2.Down = false;
-                targetScript3.Down = false; 
+                targetScript3.Down = false;
+               
             }
             
-            else if (Timerend1 == true&&targetScript1.Down==false&&targetScript2.Down==true&&targetScript3.Down==false) 
+            else if (Timerend1 == true&&targetScript1.Down==false&&targetScript2.Down==true&&targetScript3.Down==false&&round<10) 
             {
                 targetScript1.Down = false;
                 targetScript2.Down = false;
-                targetScript3.Down = false; 
+                targetScript3.Down = false;
+                
             }
 
-            else if (Timerend1 == true&&targetScript1.Down==true&&targetScript2.Down==false&&targetScript3.Down==false) 
+            else if (Timerend1 == true&&targetScript1.Down==true&&targetScript2.Down==false&&targetScript3.Down==false&&round<10) 
             {
                 targetScript1.Down = false;
                 targetScript2.Down = false;
-                targetScript3.Down = false; 
+                targetScript3.Down = false;
+               
+            }
+            if (targetScript1.Down==true&&targetScript2.Down==true&&targetScript3.Down==true&&round==10)
+            {
+                StopCoroutine(SetTimer1());
+                round +=1;
             }
 
             if (targetScript1.fire == true)
@@ -112,7 +139,17 @@ public TargetScript targetScript1;
             
             
     }
-    
+
+    IEnumerator SetTimer2()
+    {
+        yield return new WaitForSeconds(5);
+        Timerend2 =true;
+
+        if (Timerend2 == true)
+        {
+            GameOver.SetActive(true);
+        }
+    }
     }
            
             
