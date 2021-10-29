@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class VictimScript3 : MonoBehaviour
 {
+    
     public Animator anim;
     public bool fire;
     public bool free;
@@ -42,4 +43,5 @@ public class VictimScript3 : MonoBehaviour
             anim.SetBool("Down", true); 
         }
     }
+    
 }

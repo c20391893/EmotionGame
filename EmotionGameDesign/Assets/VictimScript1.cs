@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class VictimScript1: MonoBehaviour
 { 
+    
     public Animator anim;
     public bool fire;
     public bool free;
@@ -44,5 +45,6 @@ public class VictimScript1: MonoBehaviour
 
        
     }
+    
 }
 

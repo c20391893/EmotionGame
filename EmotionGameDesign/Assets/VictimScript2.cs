@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class VictimScript2 : MonoBehaviour
 {
+    
     public Animator anim;
     public bool fire;
     public bool free;

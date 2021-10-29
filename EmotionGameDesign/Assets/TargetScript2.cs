@@ -28,8 +28,8 @@ using UnityEngine;
 
         void OnMouseUp()
         {
-            free = true;
-            fire = false;
+            fire = true;
+            free = false;
         }
     
         public void Update()

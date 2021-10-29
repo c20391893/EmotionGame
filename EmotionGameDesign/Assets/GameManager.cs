@@ -5,21 +5,25 @@ using System.Transactions;
 using UnityEditor.MemoryProfiler;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.UI;
+
 
 public class GameManager : MonoBehaviour
 {
-
-public TargetScript targetScript1;
+   public Text timeText;   
+    public TargetScript targetScript1;
  public TargetScript2 targetScript2;
  public TargetScript3 targetScript3;
  public int round =1;
- [SerializeField] public float timerDuration;
+  public float timerDuration;
  [SerializeField] public bool Timerend1;
  [SerializeField] public bool Timerend2;
  public VictimScript1 victim1;
  public VictimScript2 victim2;
  public VictimScript3 victim3;
  public GameObject GameOver;
+ public bool restartbool;
+ 
 
 
   
@@ -32,6 +36,7 @@ public TargetScript targetScript1;
     {
         Timerend1=false;
         Timerend2 = false;
+        restartbool = true;
     }
 
     // Update is called once per frame
@@ -40,7 +45,8 @@ public TargetScript targetScript1;
 
     void Update()
     {
-        Debug.Log(round);
+       
+        Debug.Log(Timerend1);
 
         if (targetScript1.Down == true && targetScript2.Down == !true && targetScript3.Down == !true)
 
@@ -89,27 +95,33 @@ public TargetScript targetScript1;
             }
 
 
-            else if (Timerend1 == true&&targetScript1.Down==false&&targetScript2.Down==false&&targetScript3.Down==true&&round<10) 
-            {
-                targetScript1.Down = false;
-                targetScript2.Down = false;
-                targetScript3.Down = false;
+            else if (Timerend1 == true&&targetScript1.Down==false&&targetScript2.Down==false&&targetScript3.Down==true&&round<10)
+            { 
+                StartCoroutine(restart());
+               StopCoroutine(SetTimer1());
+               // targetScript1.anim.SetBool("shot", true);
+                //targetScript2.anim.SetBool("shot", true);
+                targetScript1.Down = true;
+                targetScript2.Down = true;
+                    // targetScript3.Down = false;
                
             }
             
-            else if (Timerend1 == true&&targetScript1.Down==false&&targetScript2.Down==true&&targetScript3.Down==false&&round<10) 
+            else if (Timerend1 == true&&targetScript1.Down==false&&targetScript2.Down==true&&targetScript3.Down==false&&round<10)
             {
-                targetScript1.Down = false;
+               
+                //targetScript1.Down = false;
                 targetScript2.Down = false;
-                targetScript3.Down = false;
+                //targetScript3.Down = false;
                 
             }
 
-            else if (Timerend1 == true&&targetScript1.Down==true&&targetScript2.Down==false&&targetScript3.Down==false&&round<10) 
+            else if (Timerend1 == true&&targetScript1.Down==true&&targetScript2.Down==false&&targetScript3.Down==false&&round<10)
             {
+                
                 targetScript1.Down = false;
-                targetScript2.Down = false;
-                targetScript3.Down = false;
+               // targetScript2.Down = false;
+               // targetScript3.Down = false;
                
             }
             if (targetScript1.Down==true&&targetScript2.Down==true&&targetScript3.Down==true&&round==10)
@@ -142,7 +154,7 @@ public TargetScript targetScript1;
 
     IEnumerator SetTimer2()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(8);
         Timerend2 =true;
 
         if (Timerend2 == true)
@@ -150,7 +162,21 @@ public TargetScript targetScript1;
             GameOver.SetActive(true);
         }
     }
+
+    IEnumerator restart()
+    {
+        yield return new WaitForSeconds(5);
+        restartbool = true;
+        {
+            targetScript1.anim.SetBool("shot", false);
+            targetScript2.anim.SetBool("shot", false);
+            targetScript1.Down = false;
+            targetScript2.Down = false;   
+        }
     }
+    
+    }
+    
            
             
                     
