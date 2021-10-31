@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
        
-        Debug.Log(Timerend1);
+        Debug.Log(targetScript1.Down);
 
         if (targetScript1.Down == true && targetScript2.Down == !true && targetScript3.Down == !true)
 
@@ -97,11 +97,9 @@ public class GameManager : MonoBehaviour
 
             else if (Timerend1 == true&&targetScript1.Down==false&&targetScript2.Down==false&&targetScript3.Down==true&&round<10)
             { 
-                StartCoroutine(restart());
+               // StartCoroutine(restart());
                StopCoroutine(SetTimer1());
-               // targetScript1.anim.SetBool("shot", true);
-                //targetScript2.anim.SetBool("shot", true);
-                targetScript1.Down = true;
+               targetScript1.Down = true;
                 targetScript2.Down = true;
                     // targetScript3.Down = false;
                

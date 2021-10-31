@@ -53,7 +53,7 @@ public class TargetScript : MonoBehaviour
         if (Down == true)
         {
             anim.SetBool("Down", true);  
-            // gm.roundcounter += 1;
+          
         }
     }
 }

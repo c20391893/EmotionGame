@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 [System.Serializable]
 public class Wave
-{
+{/*
    public string WaveName;
    public int noOfEnemies;
    public GameObject[] typeofEnemies;
@@ -30,5 +30,5 @@ public class WaveSpawner : MonoBehaviour
 
 void SpawnWave()
 {
-   
+  */ 
 }
