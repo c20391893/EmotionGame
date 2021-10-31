@@ -97,7 +97,7 @@ public class GameManager : MonoBehaviour
 
             else if (Timerend1 == true&&targetScript1.Down==false&&targetScript2.Down==false&&targetScript3.Down==true&&round<10)
             { 
-               // StartCoroutine(restart());
+                StartCoroutine(restart());
                StopCoroutine(SetTimer1());
                targetScript1.Down = true;
                 targetScript2.Down = true;
