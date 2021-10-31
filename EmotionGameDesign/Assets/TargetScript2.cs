@@ -8,10 +8,10 @@ using UnityEngine;
         public Animator anim;
         public bool fire;
         public bool free;
-         public bool Down;
-         public GameManager gm;
-         public CircleCollider2D myCollider;
-     
+        public bool Down;
+        public GameManager gm;
+        public CircleCollider2D myCollider;
+    
         // Start is called before the first frame update
         void Start()
         {
@@ -28,8 +28,8 @@ using UnityEngine;
 
         void OnMouseUp()
         {
-            fire = true;
-            free = false;
+            free = true;
+            fire = false;
         }
     
         public void Update()
@@ -42,16 +42,15 @@ using UnityEngine;
 
             if (free == true)
             {
-                anim.SetBool("shot", false);  
-                
+                anim.SetBool("shot", false);     
             }
+
             if (Down == true)
             {
-                anim.SetBool("Down", true);  
-               // gm.roundcounter += 1;
+                anim.SetBool("Down", true);
+                //gm.roundcounter += 1;
             }
         }
-        
     }
 
 

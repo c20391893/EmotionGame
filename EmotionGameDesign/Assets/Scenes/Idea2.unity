@@ -401,7 +401,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeText: {fileID: 0}
-  targetScript1: {fileID: 734429592}
+  targetScript1: {fileID: 734429594}
   targetScript2: {fileID: 649591045}
   targetScript3: {fileID: 433965471}
   round: 1
@@ -940,17 +940,6 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 8269646208307320264, guid: a8da532c5a05df6499c8eb3cb11be063, type: 3}
   m_PrefabInstance: {fileID: 1624791632}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &734429592 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 186877018, guid: a8da532c5a05df6499c8eb3cb11be063, type: 3}
-  m_PrefabInstance: {fileID: 1624791632}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 734429590}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0921336ea33a4014b9e1df82471e9160, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &734429594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -958,7 +947,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 734429590}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0921336ea33a4014b9e1df82471e9160, type: 3}
   m_Name: 
@@ -992,10 +981,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 186877018, guid: a8da532c5a05df6499c8eb3cb11be063, type: 3}
-      propertyPath: anim
-      value: 
-      objectReference: {fileID: 433965466}
     - target: {fileID: 2750044876772610575, guid: a8da532c5a05df6499c8eb3cb11be063, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -1046,7 +1031,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6335537185670733274, guid: a8da532c5a05df6499c8eb3cb11be063, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6335537185670733274, guid: a8da532c5a05df6499c8eb3cb11be063, type: 3}
       propertyPath: m_TagString
@@ -1518,7 +1503,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Timer:'
+  m_Text: In case of issue please restart
 --- !u!222 &1001669202
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1706,10 +1691,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 186877018, guid: a8da532c5a05df6499c8eb3cb11be063, type: 3}
-      propertyPath: anim
-      value: 
-      objectReference: {fileID: 649591042}
     - target: {fileID: 2750044876772610575, guid: a8da532c5a05df6499c8eb3cb11be063, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -1760,7 +1741,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6335537185670733274, guid: a8da532c5a05df6499c8eb3cb11be063, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6335537185670733274, guid: a8da532c5a05df6499c8eb3cb11be063, type: 3}
       propertyPath: m_TagString
@@ -1822,7 +1803,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1582431008
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1835,86 +1816,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4f714ce329297448bdb63b5e3c147bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waves:
-  - WaveName: Wave 1
-    noOfEnemies: 3
-    typeofEnemies:
-    - {fileID: 6766644314359811713, guid: 2ade237c0d44d504c8d893f10f1af234, type: 3}
-    - {fileID: 2443263992956356326, guid: c5007c4c25f40b54396629eb1fa1ae01, type: 3}
-    - {fileID: 3547944872930023426, guid: 6a10c5aad696b3d488a7f27b20696374, type: 3}
-    spawnInterval: 3
-  - WaveName: Wave 2
-    noOfEnemies: 3
-    typeofEnemies:
-    - {fileID: 6766644314359811713, guid: 2ade237c0d44d504c8d893f10f1af234, type: 3}
-    - {fileID: 2443263992956356326, guid: c5007c4c25f40b54396629eb1fa1ae01, type: 3}
-    - {fileID: 3547944872930023426, guid: 6a10c5aad696b3d488a7f27b20696374, type: 3}
-    spawnInterval: 3
-  - WaveName: Wave 3
-    noOfEnemies: 3
-    typeofEnemies:
-    - {fileID: 6766644314359811713, guid: 2ade237c0d44d504c8d893f10f1af234, type: 3}
-    - {fileID: 2443263992956356326, guid: c5007c4c25f40b54396629eb1fa1ae01, type: 3}
-    - {fileID: 3547944872930023426, guid: 6a10c5aad696b3d488a7f27b20696374, type: 3}
-    spawnInterval: 3
-  - WaveName: Wave 4
-    noOfEnemies: 3
-    typeofEnemies:
-    - {fileID: 6766644314359811713, guid: 2ade237c0d44d504c8d893f10f1af234, type: 3}
-    - {fileID: 2443263992956356326, guid: c5007c4c25f40b54396629eb1fa1ae01, type: 3}
-    - {fileID: 3547944872930023426, guid: 6a10c5aad696b3d488a7f27b20696374, type: 3}
-    spawnInterval: 3
-  - WaveName: Wave 5
-    noOfEnemies: 3
-    typeofEnemies:
-    - {fileID: 6766644314359811713, guid: 2ade237c0d44d504c8d893f10f1af234, type: 3}
-    - {fileID: 2443263992956356326, guid: c5007c4c25f40b54396629eb1fa1ae01, type: 3}
-    - {fileID: 3547944872930023426, guid: 6a10c5aad696b3d488a7f27b20696374, type: 3}
-    spawnInterval: 3
-  - WaveName: Wave 6
-    noOfEnemies: 3
-    typeofEnemies:
-    - {fileID: 6766644314359811713, guid: 2ade237c0d44d504c8d893f10f1af234, type: 3}
-    - {fileID: 2443263992956356326, guid: c5007c4c25f40b54396629eb1fa1ae01, type: 3}
-    - {fileID: 3547944872930023426, guid: 6a10c5aad696b3d488a7f27b20696374, type: 3}
-    spawnInterval: 3
-  - WaveName: Wave 7
-    noOfEnemies: 3
-    typeofEnemies:
-    - {fileID: 6766644314359811713, guid: 2ade237c0d44d504c8d893f10f1af234, type: 3}
-    - {fileID: 2443263992956356326, guid: c5007c4c25f40b54396629eb1fa1ae01, type: 3}
-    - {fileID: 3547944872930023426, guid: 6a10c5aad696b3d488a7f27b20696374, type: 3}
-    spawnInterval: 0
-  - WaveName: Wave 8
-    noOfEnemies: 3
-    typeofEnemies:
-    - {fileID: 6766644314359811713, guid: 2ade237c0d44d504c8d893f10f1af234, type: 3}
-    - {fileID: 2443263992956356326, guid: c5007c4c25f40b54396629eb1fa1ae01, type: 3}
-    - {fileID: 3547944872930023426, guid: 6a10c5aad696b3d488a7f27b20696374, type: 3}
-    spawnInterval: 3
-  - WaveName: Wave 9
-    noOfEnemies: 3
-    typeofEnemies:
-    - {fileID: 6766644314359811713, guid: 2ade237c0d44d504c8d893f10f1af234, type: 3}
-    - {fileID: 2443263992956356326, guid: c5007c4c25f40b54396629eb1fa1ae01, type: 3}
-    - {fileID: 3547944872930023426, guid: 6a10c5aad696b3d488a7f27b20696374, type: 3}
-    spawnInterval: 3
-  - WaveName: Wave 10
-    noOfEnemies: 3
-    typeofEnemies:
-    - {fileID: 6766644314359811713, guid: 2ade237c0d44d504c8d893f10f1af234, type: 3}
-    - {fileID: 2443263992956356326, guid: c5007c4c25f40b54396629eb1fa1ae01, type: 3}
-    - {fileID: 3547944872930023426, guid: 6a10c5aad696b3d488a7f27b20696374, type: 3}
-    spawnInterval: 3
-  spawnPoints:
-  - {fileID: 1603874396}
-  - {fileID: 1552453018}
-  - {fileID: 660981638}
-  currentWave:
-    WaveName: 
-    noOfEnemies: 0
-    typeofEnemies: []
-    spawnInterval: 0
 --- !u!4 &1582431009
 Transform:
   m_ObjectHideFlags: 0
@@ -1967,10 +1868,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 186877018, guid: a8da532c5a05df6499c8eb3cb11be063, type: 3}
-      propertyPath: anim
-      value: 
-      objectReference: {fileID: 734429591}
     - target: {fileID: 2750044876772610575, guid: a8da532c5a05df6499c8eb3cb11be063, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -2021,7 +1918,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6335537185670733274, guid: a8da532c5a05df6499c8eb3cb11be063, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6335537185670733274, guid: a8da532c5a05df6499c8eb3cb11be063, type: 3}
       propertyPath: m_TagString

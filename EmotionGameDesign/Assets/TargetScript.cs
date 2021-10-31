@@ -15,11 +15,12 @@ public class TargetScript : MonoBehaviour
     public bool Down;
     public GameManager gm;
     public CircleCollider2D myCollider;
-      
+    
     // Start is called before the first frame update
     void Start()
     {
-       
+        anim = GetComponentInChildren<Animator>();
+        myCollider = GetComponent<CircleCollider2D>();
     }
 
     // Update is called once per frame
@@ -27,16 +28,14 @@ public class TargetScript : MonoBehaviour
     {
         fire = true;
         free = false;
-
     }
 
     void OnMouseUp()
     {
-        fire = true;
-        free = false;
+        free = true;
+        fire = false;
     }
     
-   
     public void Update()
     {
         if (fire == true)
@@ -47,13 +46,13 @@ public class TargetScript : MonoBehaviour
 
         if (free == true)
         {
-            anim.SetBool("shot", false);  
-                
+            anim.SetBool("shot", false);     
         }
+
         if (Down == true)
         {
-            anim.SetBool("Down", true);  
-          
+            anim.SetBool("Down", true);
+            //gm.roundcounter += 1;
         }
     }
 }
