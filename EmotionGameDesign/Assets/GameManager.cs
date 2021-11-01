@@ -26,6 +26,8 @@ public class GameManager : MonoBehaviour
  public bool restartbool1;
  public bool restartbool2;
  public bool restartbool3;
+ public bool final;
+public GameObject text;
  
 
 
@@ -41,6 +43,7 @@ public class GameManager : MonoBehaviour
         Timerend2 = false;
         restartbool1 =true;
         restartbool2 =true;
+        final = false;
     }
 
     // Update is called once per frame
@@ -81,6 +84,7 @@ public class GameManager : MonoBehaviour
         
         if(round>10)
         {
+            StartCoroutine(Final());
            victim1.anim.SetBool("rise",true); 
            victim2.anim.SetBool("rise",true); 
            victim3.anim.SetBool("rise",true); 
@@ -89,6 +93,12 @@ public class GameManager : MonoBehaviour
         if (victim1.Down == true && victim2.Down == true && victim3.Down == true)
         {
             StartCoroutine(SetTimer2());
+        }
+
+        if (victim1.fire == true || victim2.fire == true || victim3.fire == true)
+        {
+          StopCoroutine(Final());
+            text.SetActive(false);
         }
         
     }
@@ -208,6 +218,18 @@ public class GameManager : MonoBehaviour
             targetScript3.anim.SetBool("Restart",false);
             targetScript1.Down = false;
         }
+    }
+
+    IEnumerator Final()
+    {
+        yield return new WaitForSeconds(5);
+        text.SetActive(true);
+        if (victim1.fire == true || victim2.fire == true || victim3.fire == true)
+        {
+            text.SetActive(false);
+        }
+            
+       
     }
     }
     
