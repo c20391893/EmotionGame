@@ -5,6 +5,7 @@ using System.Transactions;
 using UnityEditor.MemoryProfiler;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.SocialPlatforms;
 using UnityEngine.UI;
 
 
@@ -22,7 +23,9 @@ public class GameManager : MonoBehaviour
  public VictimScript2 victim2;
  public VictimScript3 victim3;
  public GameObject GameOver;
- public bool restartbool;
+ public bool restartbool1;
+ public bool restartbool2;
+ public bool restartbool3;
  
 
 
@@ -36,7 +39,8 @@ public class GameManager : MonoBehaviour
     {
         Timerend1=false;
         Timerend2 = false;
-        restartbool = true;
+        restartbool1 =true;
+        restartbool2 =true;
     }
 
     // Update is called once per frame
@@ -46,24 +50,33 @@ public class GameManager : MonoBehaviour
     void Update()
     {
        
-        Debug.Log(targetScript1.Down);
+        Debug.Log(round);
 
         if (targetScript1.Down == true && targetScript2.Down == !true && targetScript3.Down == !true)
-
         {
+            restartbool3 = false;
+            restartbool2 = false;
+            restartbool1 = false;
             Timerend1 = false;
             StartCoroutine(SetTimer1());
         }
         else if (targetScript1.Down == !true && targetScript2.Down == true && targetScript3.Down == !true)
 
         {
+            restartbool3 = false;
+            restartbool2 = false;
+            restartbool1 = false;
             Timerend1 = false;
             StartCoroutine(SetTimer1());
         }
         else if (targetScript1.Down == !true && targetScript2.Down == !true && targetScript3.Down == true)
         {
+            restartbool3 = false;
+            restartbool2 = false;
+            restartbool1 = false;
             Timerend1 = false;
             StartCoroutine(SetTimer1());
+            
         }
         
         if(round>10)
@@ -91,35 +104,35 @@ public class GameManager : MonoBehaviour
                 targetScript1.Down = false;
                 targetScript2.Down = false;
                 targetScript3.Down = false;
+                
                 round += 1;
             }
 
 
             else if (Timerend1 == true&&targetScript1.Down==false&&targetScript2.Down==false&&targetScript3.Down==true&&round<10)
             { 
-                StartCoroutine(restart());
-               StopCoroutine(SetTimer1());
-               targetScript1.Down = true;
-                targetScript2.Down = true;
-                    // targetScript3.Down = false;
+                StartCoroutine(restart1());
+               
+               targetScript1.anim.SetBool("Restart", true);
+                targetScript2.anim.SetBool("Restart",true);
+                   
                
             }
             
             else if (Timerend1 == true&&targetScript1.Down==false&&targetScript2.Down==true&&targetScript3.Down==false&&round<10)
             {
-               
-                //targetScript1.Down = false;
-                targetScript2.Down = false;
-                //targetScript3.Down = false;
+                StartCoroutine(restart2());
+                targetScript1.anim.SetBool("Restart", true);
+                targetScript3.anim.SetBool("Restart",true);
                 
             }
 
             else if (Timerend1 == true&&targetScript1.Down==true&&targetScript2.Down==false&&targetScript3.Down==false&&round<10)
             {
                 
-                targetScript1.Down = false;
-               // targetScript2.Down = false;
-               // targetScript3.Down = false;
+                StartCoroutine(restart3());
+                targetScript2.anim.SetBool("Restart", true);
+                targetScript3.anim.SetBool("Restart",true);
                
             }
             if (targetScript1.Down==true&&targetScript2.Down==true&&targetScript3.Down==true&&round==10)
@@ -128,11 +141,7 @@ public class GameManager : MonoBehaviour
                 round +=1;
             }
 
-            if (targetScript1.fire == true)
-            {
-                targetScript1.anim.SetBool("shot", true);
-                targetScript1.Down = true;
-            }
+            
             
             if (targetScript1.Down == false)
             {
@@ -161,18 +170,45 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    IEnumerator restart()
+    IEnumerator restart1()
     {
-        yield return new WaitForSeconds(5);
-        restartbool = true;
+        yield return new WaitForSeconds(2);
+        restartbool1 = true;
+        if(restartbool1 == true)
         {
-            targetScript1.anim.SetBool("shot", false);
-            targetScript2.anim.SetBool("shot", false);
-            targetScript1.Down = false;
-            targetScript2.Down = false;   
+            
+            targetScript1.anim.SetBool("Restart",false);
+            targetScript2.anim.SetBool("Restart",false);
+            targetScript3.Down = false;
         }
     }
     
+    
+    IEnumerator restart2()
+    {
+        yield return new WaitForSeconds(2);
+        restartbool2 = true;
+        if(restartbool2==true)
+        {
+            
+            targetScript1.anim.SetBool("Restart",false);
+            targetScript3.anim.SetBool("Restart",false);
+            targetScript2.Down = false;
+        }
+    }
+    
+    IEnumerator restart3()
+    {
+        yield return new WaitForSeconds(2);
+        restartbool3 = true;
+        if(restartbool3==true)
+        {
+            
+            targetScript2.anim.SetBool("Restart",false);
+            targetScript3.anim.SetBool("Restart",false);
+            targetScript1.Down = false;
+        }
+    }
     }
     
            
