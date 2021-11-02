@@ -15,12 +15,13 @@ public class TargetScript : MonoBehaviour
     public bool Down;
     public GameManager gm;
     public CircleCollider2D myCollider;
-    
+    public AudioSource audiodata;
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponentInChildren<Animator>();
         myCollider = GetComponent<CircleCollider2D>();
+        audiodata = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -28,6 +29,7 @@ public class TargetScript : MonoBehaviour
     {
         fire = true;
         free = false;
+       
     }
 
     void OnMouseUp()
@@ -42,6 +44,7 @@ public class TargetScript : MonoBehaviour
         {
             anim.SetBool("shot", true);
             Down = true;
+            audiodata.Play();
         }
 
         if (free == true)

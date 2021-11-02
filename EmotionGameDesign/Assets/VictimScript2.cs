@@ -12,12 +12,16 @@ public class VictimScript2 : MonoBehaviour
     public bool Down;
     public GameManager gm;
     public CircleCollider2D myCollider;
+    public AudioSource audiodata;
+    
+    public AudioClip Clip;
      
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponentInChildren<Animator>();
         myCollider = GetComponent<CircleCollider2D>();
+       audiodata = GetComponent<AudioSource>();
         anim.SetBool("rise",false);
     }
 
@@ -26,6 +30,7 @@ public class VictimScript2 : MonoBehaviour
     {
         fire = true;
         free = false;
+        audiodata.Play();
     }
 
     
@@ -36,6 +41,7 @@ public class VictimScript2 : MonoBehaviour
         {
             anim.SetBool("shot", true);
             Down = true;
+           
         }
 
         if (Down == true)

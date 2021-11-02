@@ -11,7 +11,7 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-   public Text timeText;   
+  // public Text timeText;   
     public TargetScript targetScript1;
  public TargetScript2 targetScript2;
  public TargetScript3 targetScript3;
@@ -26,6 +26,9 @@ public class GameManager : MonoBehaviour
  public bool restartbool1;
  public bool restartbool2;
  public bool restartbool3;
+ public bool restartbool4;
+ public bool restartbool5;
+ public bool restartbool6;
  public bool final;
 public GameObject text;
  
@@ -145,6 +148,25 @@ public GameObject text;
                 targetScript3.anim.SetBool("Restart",true);
                
             }
+            
+            else if (Timerend1==true&&targetScript1.Down==false&&targetScript2.Down==true&&targetScript3.Down==true&&round < 10)
+            {
+                StartCoroutine(restart4()); 
+                targetScript1.anim.SetBool("Restart", true);
+            }
+            
+            else if (Timerend1==true&&targetScript1.Down==true&&targetScript2.Down==false&&targetScript3.Down==true&&round < 10)
+            {
+                StartCoroutine(restart5());
+                targetScript2.anim.SetBool("Restart", true);
+            }
+            
+            else if (Timerend1==true&&targetScript1.Down==false&&targetScript2.Down==true&&targetScript3.Down==false&&round < 10)
+            {
+                StartCoroutine(restart6());
+                targetScript3.anim.SetBool("Restart", true);
+            }
+            
             if (targetScript1.Down==true&&targetScript2.Down==true&&targetScript3.Down==true&&round==10)
             {
                 StopCoroutine(SetTimer1());
@@ -220,6 +242,44 @@ public GameObject text;
         }
     }
 
+    IEnumerator restart4()
+    {
+        yield return new WaitForSeconds(2);
+        restartbool4 = true;
+        if(restartbool4==true)
+        {
+            
+            targetScript1.anim.SetBool("Restart", false);
+            targetScript2.Down = false;
+            targetScript3.Down = false;
+        }
+    }
+    
+    IEnumerator restart5()
+    {
+        yield return new WaitForSeconds(2);
+        restartbool5 = true;
+        if(restartbool5==true)
+        {
+            
+            targetScript2.anim.SetBool("Restart",false);
+            targetScript1.Down = false;
+            targetScript3.Down = false;
+        }
+    }
+    
+    IEnumerator restart6()
+    {
+        yield return new WaitForSeconds(2);
+        restartbool6 = true;
+        if(restartbool6==true)
+        {
+            
+            targetScript3.anim.SetBool("Restart",false);
+            targetScript1.Down = false;
+            targetScript2.Down = false;
+        }
+    }
     IEnumerator Final()
     {
         yield return new WaitForSeconds(5);
