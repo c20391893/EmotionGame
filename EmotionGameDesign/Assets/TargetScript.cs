@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.IO.LowLevel.Unsafe;
 using UnityEditor;
-using UnityEditor.MemoryProfiler;
+
 using UnityEngine;
 using UnityEngine.Events;
 

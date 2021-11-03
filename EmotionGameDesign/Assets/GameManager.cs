@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Transactions;
-using UnityEditor.MemoryProfiler;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.SocialPlatforms;
@@ -31,6 +30,8 @@ public class GameManager : MonoBehaviour
  public bool restartbool6;
  public bool final;
 public GameObject text;
+public RoundText roundtext;
+public  GameObject issue;
  
 
 
@@ -56,7 +57,7 @@ public GameObject text;
     void Update()
     {
        
-        Debug.Log(round);
+       // Debug.Log(round);
 
         if (targetScript1.Down == true && targetScript2.Down == !true && targetScript3.Down == !true)
         {
@@ -90,7 +91,8 @@ public GameObject text;
             StartCoroutine(Final());
            victim1.anim.SetBool("rise",true); 
            victim2.anim.SetBool("rise",true); 
-           victim3.anim.SetBool("rise",true); 
+           victim3.anim.SetBool("rise",true);
+           roundtext.roundText.gameObject.SetActive(false);
         }
 
         if (victim1.Down == true && victim2.Down == true && victim3.Down == true)
@@ -199,6 +201,7 @@ public GameObject text;
         if (Timerend2 == true)
         {
             GameOver.SetActive(true);
+            issue.SetActive(false);
         }
     }
 
@@ -245,14 +248,12 @@ public GameObject text;
     IEnumerator restart4()
     {
         yield return new WaitForSeconds(2);
-        restartbool4 = true;
-        if(restartbool4==true)
-        {
+        
             
             targetScript1.anim.SetBool("Restart", false);
             targetScript2.Down = false;
             targetScript3.Down = false;
-        }
+        
     }
     
     IEnumerator restart5()
