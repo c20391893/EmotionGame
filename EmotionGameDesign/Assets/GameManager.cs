@@ -32,6 +32,9 @@ public class GameManager : MonoBehaviour
 public GameObject text;
 public RoundText roundtext;
 public  GameObject issue;
+public GameObject stage1;
+public GameObject stage2;
+public GameObject stage3;
  
 
 
@@ -58,7 +61,9 @@ public  GameObject issue;
     {
        
        // Debug.Log(round);
-
+       stage1.gameObject.SetActive(true);
+       stage2.gameObject.SetActive(false);
+       stage3.gameObject.SetActive(false);
         if (targetScript1.Down == true && targetScript2.Down == !true && targetScript3.Down == !true)
         {
             restartbool3 = false;
@@ -85,7 +90,13 @@ public  GameObject issue;
             StartCoroutine(SetTimer1());
             
         }
-        
+
+        if (round >= 5)
+        {
+            stage1.gameObject.SetActive(false);
+            stage2.gameObject.SetActive(true);
+            stage3.gameObject.SetActive(false); 
+        }
         if(round>10)
         {
             StartCoroutine(Final());
@@ -93,6 +104,9 @@ public  GameObject issue;
            victim2.anim.SetBool("rise",true); 
            victim3.anim.SetBool("rise",true);
            roundtext.roundText.gameObject.SetActive(false);
+           stage3.gameObject.SetActive(true);
+           stage2.gameObject.SetActive(false);
+           stage1.gameObject.SetActive(false);
         }
 
         if (victim1.Down == true && victim2.Down == true && victim3.Down == true)
